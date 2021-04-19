@@ -51,8 +51,7 @@ pipeline {
                     sh 'ls -la'
                     git branch: 'master', credentialsId: 'git_cred', url: 'https://github.com/yathish-cloud/webapp-repo.git'
 					
-                  sh'''
-                     chmod 777 *.war
+                  sh'''                    
                      docker stop $(docker ps -aq)
                      docker rm $(docker ps -aq)
 				             docker build -t sample_webapp .
